@@ -1,0 +1,16 @@
+{% extends 'parentlayout.html'%}
+{% block content %}
+
+<h2>create</h2>
+<a href="{% url 'list'%}">List Movies</a>
+<br>
+<a href="{% url 'signup'%}">SignUp</a>
+<br>
+<a href="{% url 'logout'%}">Logout</a>
+<br>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ frm.as_p }}
+    <button type="submit">create</button>
+</form>
+{% endblock %}

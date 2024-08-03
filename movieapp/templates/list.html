@@ -1,0 +1,26 @@
+{% extends 'parentlayout.html'%}
+{% load static %}
+{% block content %}
+<h1>list {{ visit }} times visited</h1>
+<a href="{% url 'create'%}">CreateMovies</a>
+<br>
+<a href="{% url 'signup'%}">SignUp</a>
+<br>
+<a href="{% url 'logout'%}">Logout</a>
+<table>
+<tr><th>TITLE</th>  <th>YEAR</th>  <th>SUCCESS</th>  <th>SUMMARY</th> <th>EDIT/DELETE</th></tr>
+{% for i in movie%}
+<td><p> {{i.Title | upper}} </p></td>
+<td><p> {{i.Year}}  </p></td>
+<td><p> {{i.success}} </p></td>
+<td><p> {{i.summary}} </p></td>
+
+<td><a href="{% url 'edit' i.id %}">edit/</a><a href="{% url 'delete' i.id %}">delete</a></td>
+</tr>
+
+
+<br>
+
+{% endfor %}
+</table>
+{% endblock %}
